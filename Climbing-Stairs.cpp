@@ -1,6 +1,6 @@
 // Question is related to move from 0th step to nth step to reach nth step, only 1 step or 2 steps are allowed to reach nth step.
 // for n = 3 , we have 3 ways to reach 3rd step,
-// 1) 0->1->2->3 , taking 1 step each to reach 3rd, 0 to 1 , is 1 step and so on
+// 1) 0->1->2->3 , taking 1 step each to reach 3rd, 0 to 1 , is 1 step and so on.
 // 2) 0->2->3, ie 0 to 2 , 2 steps then 1 step to 3rd
 // 3) 0->1->3 
 // question is very similiar to Fibonacci , Nth Fibonacci Number
