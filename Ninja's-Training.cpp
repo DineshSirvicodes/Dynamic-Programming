@@ -34,7 +34,7 @@ int ninjaTraining(int n, vector<vector<int>> &points)
 // Tabulation TC - O(N*4*3) SC - O(N*4)
 int ninjaTraining(int n, vector<vector<int>> &points)
 {
-    // define dp 2d array of size N*4; where N is the no. of days and 4 represents the tasks cols 0 , 1, 2 ,3
+    // define dp 2d array of size N*4; where N is the no. of days and 4 represents the tasks cols 0,1, 2 ,3
     vector<vector<int>> dp(n,vector<int>(4,0));
     dp[0][0] = max(points[0][1] , points[0][2]);
     dp[0][1] = max(points[0][0] , points[0][2]);
