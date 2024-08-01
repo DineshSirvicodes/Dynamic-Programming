@@ -1,5 +1,5 @@
 // Same as maximum sum of non-ajacent elements
-// problem is a continuation of house robber , lC - 198
+// problem is a continuation of house robber , LC - 198
 // now the houses are in circle, so now first and last element cannot be taken together, instead we take 2 new arrays and push separate values ,in which
 // one array contains the elements apart from first , and second array contains the elements from the nums array apart the last element, and call the function to return the max sum in both
 // the arrays and take the maximum of their sums.
