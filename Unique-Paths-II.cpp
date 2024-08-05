@@ -17,7 +17,7 @@ public:
     }
 };
 
-// Memoization TC - O(n*m) SC = O((m-1) + (n-1)) + O(N*M), where m-1 + n-1 is the path length, O((m-1) + (n-1)) is the recursive stack space
+// Memoization TC - O(n*m) SC = O((m-1) + (n-1)) + O(N*M), where (m-1 + n-1) is the path length, O((m-1) + (n-1)) is the recursive stack space
 class Solution {
 public:
     int findPath(int i, int j,vector<vector<int>>& arr,vector<vector<int>>&dp){
