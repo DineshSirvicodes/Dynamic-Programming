@@ -40,3 +40,30 @@ public:
         }
         return dp[0][0];
     }
+
+// Space Optimization TC - O(N*N) SC - O(N) for storing the row 
+   int minimumTotal(vector<vector<int>>& triangle) {
+        int n = triangle.size();
+        vector<int> front(n,0);
+        
+        for(int j = 0; j<n ; j++){
+            front[j] = triangle[n-1][j]; // storing the last row, n-1th row
+        }
+        for(int i = n-2 ;i>=0 ;i--){
+            vector<int> curr(n,0); // n-2th row till 0th row
+            for(int j = i ; j>=0; j--){
+                int down = INT_MAX,diagonal = INT_MAX;
+                down = triangle[i][j] + front[j];
+                diagonal = triangle[i][j] + front[j+1];
+                curr[j] = min(down,diagonal);
+            }
+            front = curr;
+        }
+        return front[0];
+    }
+};
+
+//    2
+//.   3. 4
+//.   6. 5  7
+//.   4  1. 8. 3
