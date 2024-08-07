@@ -22,7 +22,7 @@ public:
 //.   6. 5  7
 //.   4  1. 8. 3
 
-// Tabulation TC - O(N*N) Sc = O(N*N) 
+// Tabulation TC - O(N*N) Sc - O(N*N) 
     int minimumTotal(vector<vector<int>>& triangle) {
         int n = triangle.size();
         vector<vector<int>> dp(n,vector<int>(n,0));
