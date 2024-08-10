@@ -17,10 +17,6 @@ public:
     }
 };
 
-//    2
-//.   3. 4
-//.   6. 5  7
-//.   4  1. 8. 3
 
 // Tabulation TC - O(N*N) Sc - O(N*N) 
     int minimumTotal(vector<vector<int>>& triangle) {
