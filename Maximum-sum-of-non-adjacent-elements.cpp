@@ -1,7 +1,7 @@
 // reCursive sol - TC - nearly O(2^n) 
 // Leetcode - problem 198 house robber
 
-// Memoization Tc - O(N) Sc - O(N) + O(N)-recursive stack space
+// Memoization Tc - O(N) SC - O(N) + O(N)-recursive stack space
 class Solution {
 public:
     int func(int ind,vector<int>&nums, vector<int>&dp){
