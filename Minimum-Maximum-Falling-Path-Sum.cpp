@@ -63,7 +63,7 @@ public:
         }
         return mini;
     }
-// Space Optimization
+// Space Optimization TC - O(N*N) SC - O(N)
 
     int minFallingPathSum(vector<vector<int>>& matrix) {
         int n = matrix.size();
