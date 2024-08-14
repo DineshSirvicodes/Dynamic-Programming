@@ -1,4 +1,4 @@
-// Memoization TC - O(N*N) , SC - O(N*N) + O(N)
+//1) Memoization TC - O(N*N) , SC - O(N*N) + O(N)
  
 class Solution {
 public:
@@ -27,7 +27,7 @@ public:
     }
 };
 
-// Tabulation TC - O(N*N) SC - O(N*N)
+//2) Tabulation TC - O(N*N) SC - O(N*N)
     int minFallingPathSum(vector<vector<int>>& matrix) {
         int n = matrix.size();
         vector<vector<int>> dp(n,vector<int>(n,0));
@@ -63,7 +63,7 @@ public:
         }
         return mini;
     }
-// Space Optimization TC - O(N*N) SC - O(N)
+//3) Space Optimization TC - O(N*N) SC - O(N)
 
     int minFallingPathSum(vector<vector<int>>& matrix) {
         int n = matrix.size();
