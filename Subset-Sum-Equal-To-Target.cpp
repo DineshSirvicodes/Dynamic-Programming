@@ -66,3 +66,40 @@ public:
         return dp[n-1][k];
     }
 };
+// Space Optimization - TC - O(N*K) , Sc O(K+1) or simply O(K)
+class Solution{   
+public:
+    // bool f(int ind,int target,vector<int>&arr,vector<vector<int>> &dp){
+    //     if(target == 0) return true;
+    //     if(ind == 0) return (arr[0] == target);
+    //     if(dp[ind][target] != -1) return dp[ind][target];
+    //     bool NotTake = f(ind-1,target,arr,dp);
+    //     bool Take = false;
+    //     if(target >= arr[ind]){
+    //         Take = f(ind-1,target-arr[ind],arr,dp);
+    //     }
+    //     return dp[ind][target] = Take|NotTake;
+    // }
+    
+    bool isSubsetSum(vector<int>arr, int k){
+        int n = arr.size();
+        // initially all false;
+        // if target == 0 at any given ind, we return true;
+        // if at ind == 0 , if we get the target , we return true;
+        vector<bool> prev(k+1,0), curr(k+1,0);
+        prev[0] = curr[0] = true; 
+        prev[arr[0]] = true;
+        for(int ind = 1 ; ind<n; ind++){
+            for(int target = 1; target<=k; target++){
+                bool notTake = prev[target];
+                bool take = false;
+                if(target >= arr[ind]){
+                    take = prev[target-arr[ind]];
+                }
+                curr[target] = take | notTake;
+            }
+            prev = curr;
+        }
+        return prev[k];
+    }
+};
