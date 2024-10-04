@@ -54,3 +54,31 @@ public:
       
     }
 };
+// Space Optimization - TC - O(N*K)  + O(N) , SC - O(K+1) or O(K)
+class Solution {
+public:
+    bool canPartition(vector<int>& nums) {
+        int n = nums.size();
+        int TotalSum = accumulate(nums.begin(),nums.end(),0);
+        if(TotalSum % 2 != 0) return false;
+        int k = TotalSum/2;
+        vector<bool> prev(k+1,0),curr(k+1,0);
+        prev[0] = curr[0] = true;
+        if(nums[0] <= k) prev[nums[0]] = true;
+ 
+
+        for(int ind = 1; ind < n ; ind++){
+            for(int target = 1; target<=k; target++){
+                bool NotTake = prev[target];
+                bool Take = false;
+                if(target >= nums[ind]){
+                    Take = prev[target-nums[ind]];
+                }
+                curr[target] = Take|NotTake;
+            }
+            prev = curr;
+        }
+        return prev[k];
+
+    }
+};
