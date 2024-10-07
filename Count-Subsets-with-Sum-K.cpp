@@ -1,26 +1,29 @@
 //Memoization Sol TC - O(N*K) SC - O(N*K) + O(N);
 
+int MOD = 1e9+7;
 int f(int ind, int sum,vector<int>&arr,vector<vector<int>> &dp){
-	if(sum == 0) return 1;
-	if(ind == 0){
-	    return (arr[ind] == sum);
-	}
+	
+    if(ind == 0){
+        if(sum == 0 && arr[0] == 0) return 2;
+        if(sum == 0 || sum == arr[0]) return 1;
+        return 0;
+    }
 	if(dp[ind][sum] != -1) return dp[ind][sum];
 	int notpick = f(ind-1,sum,arr,dp);
 	int pick = 0;
     if (arr[ind] <= sum) {
         pick = f(ind - 1, sum - arr[ind], arr, dp);
     }
-    return dp[ind][sum] = (pick + notpick);
+    return dp[ind][sum] = (pick + notpick)%MOD;
 }
 
-
-int findWays(vector<int>& arr, int sum)
+int findWays(vector<int>& num, int k)
 {
-	int n = arr.size();
-	vector<vector<int>> dp(n,vector<int>(sum+1,-1));
-    return f(n-1,sum,arr,dp);
+	int n = num.size();
+    vector<vector<int>> dp(n,vector<int>(k+1,-1));
+    return f(n-1,k,num,dp);
 }
+
 
 // Tabulation TC - O(N*K) SC - O(N*K);
 int findWays(vector<int>& num, int k)
