@@ -24,13 +24,14 @@ int findWays(vector<int>& num, int k)
     return f(n-1,k,num,dp);
 }
 
+// --------------------------------------------------------------
 
 // Tabulation TC - O(N*K) SC - O(N*K);
 int findWays(vector<int>& num, int tar)
 {
     int n = num.size();
     vector<vector<int>> dp(n,vector<int>(tar+1,0));
-    if(num[0] == 0) dp[0][0] =2;  // 2 cases -pick and not pick
+    if(num[0] == 0) dp[0][0] = 2;  // 2 cases -pick and not pick
     else dp[0][0] = 1;  // 1 case - not pick
     
     if(num[0]!=0 && num[0]<=tar) dp[0][num[0]] = 1;  // 1 case -pick
@@ -47,17 +48,19 @@ int findWays(vector<int>& num, int tar)
     return dp[n-1][tar];
 }
 
+//------------------------------------------------------------
+
 // Space Optimization TC - O(N*K) SC - O(K)
 int MOD = 1e9+7;
-int findWays(vector<int>& num, int k)
+int findWays(vector<int>& num, int tar)
 {
-	int n = num.size();
-
-    vector<int> prev(k+1,0), curr(k+1,0);
-    prev[0] = curr[0] = 1;
-    if (num[0] <= k) {
-        prev[num[0]] = 1;
-    }
+    int n = num.size();
+    vector<int> prev(tar+1,0), curr(tar+1,0);
+    if(num[0] == 0) prev[0] = 2;  // 2 cases - pick and not pick
+    else prev[0] = 1;  // 1 case - not pick
+    
+    if(num[0]!=0 && num[0]<=tar) prev[num[0]] = 1;  // 1 case -pick
+    
 
     // Fill in the DP table using a bottom-up approach
     for (int ind = 1; ind < n; ind++) {
